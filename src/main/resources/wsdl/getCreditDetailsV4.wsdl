@@ -1,0 +1,242 @@
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://getcreditdetails.wsbeans.iseries/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="GetCreditDetails" targetNamespace="http://getcreditdetails.wsbeans.iseries/">
+  <types>
+    <xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://getcreditdetails.wsbeans.iseries/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://getcreditdetails.wsbeans.iseries/" version="1.0">
+      <xs:element name="wws112" type="tns:wws112"/>
+      <xs:element name="wws112Response" type="tns:wws112Response"/>
+      <xs:complexType name="wws112">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:wws112Input"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wws112Input">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="request" type="tns:request"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="request">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="entity" type="xs:string"/>
+          <xs:element minOccurs="0" name="offerNumber" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wws112Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:wws112Result"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wws112Result">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="contact" type="tns:contact"/>
+          <xs:element minOccurs="0" name="contract" type="tns:contract"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="control" type="tns:control"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="cosigner" type="tns:cosigner"/>
+          <xs:element minOccurs="0" name="countContacts" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="countControls" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="countCosigners" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="countDebtors" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="countInterv" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="countsubctrlP1" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="countsubctrlP2" type="xs:decimal"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="debtor" type="tns:debtor"/>
+          <xs:element minOccurs="0" name="error" type="tns:error"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subControlP1" type="tns:subControlP1"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subControlP2" type="tns:subControlP2"/>
+          <xs:element minOccurs="0" name="vendor" type="tns:vendor"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contact">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="debtorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="tpContact" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="brand" type="xs:string"/>
+          <xs:element minOccurs="0" name="brandDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="cashPrice" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="catalogPrice" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="chassisNR" type="xs:string"/>
+          <xs:element minOccurs="0" name="codeGoal" type="xs:string"/>
+          <xs:element minOccurs="0" name="codeInstrument" type="xs:string"/>
+          <xs:element minOccurs="0" name="creditType" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateCreation" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="dateExpectedDel" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="dateNBB" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="entity" type="xs:string"/>
+          <xs:element minOccurs="0" name="goalDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlCession" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlConsentement" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlContract" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlDeliveryMandate" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlDemandForm" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlIdentityCard" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlInsurance" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlInvoice" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlOther" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlProofOfResidence" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlSepa" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlTakeoverCommit" type="xs:string"/>
+          <xs:element minOccurs="0" name="indCtrlUBO" type="xs:string"/>
+          <xs:element minOccurs="0" name="internalNote" type="xs:string"/>
+          <xs:element minOccurs="0" name="invoiceNR" type="xs:string"/>
+          <xs:element minOccurs="0" name="loanNet" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="model" type="xs:string"/>
+          <xs:element minOccurs="0" name="objectCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="offerNumber" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="productDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="remarkLine1" type="xs:string"/>
+          <xs:element minOccurs="0" name="remarkLine2" type="xs:string"/>
+          <xs:element minOccurs="0" name="remarkLine3" type="xs:string"/>
+          <xs:element minOccurs="0" name="statusAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="version" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="control">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="additionalControl" type="xs:string"/>
+          <xs:element minOccurs="0" name="controlDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="controlId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentToReviewid" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="statusDashBoardDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="statusDashboard" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cosigner">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" type="tns:addressDf"/>
+          <xs:element minOccurs="0" name="bankAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="birthDate" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="civilState" type="xs:string"/>
+          <xs:element minOccurs="0" name="debtorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="IDSR" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="mobilePhoneNr" type="xs:string"/>
+          <xs:element minOccurs="0" name="nationalRegisterNumber" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="nationality" type="xs:string"/>
+          <xs:element minOccurs="0" name="nrCardId" type="xs:string"/>
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="professionCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="sexCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="tpPerson" type="xs:string"/>
+          <xs:element minOccurs="0" name="vatNr" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressDf">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="nrMailBox" type="xs:string"/>
+          <xs:element minOccurs="0" name="streetName" type="xs:string"/>
+          <xs:element minOccurs="0" name="streetNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="debtor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" type="tns:addressDf"/>
+          <xs:element minOccurs="0" name="bankAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="birthDate" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="civilState" type="xs:string"/>
+          <xs:element minOccurs="0" name="debtorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="IDSR" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="mobilePhoneNr" type="xs:string"/>
+          <xs:element minOccurs="0" name="nationalRegisterNumber" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="nationality" type="xs:string"/>
+          <xs:element minOccurs="0" name="nrCardId" type="xs:string"/>
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="professionCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="sexCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="tpPerson" type="xs:string"/>
+          <xs:element minOccurs="0" name="vatNr" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="error">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="err_code" type="xs:string"/>
+          <xs:element minOccurs="0" name="err_description" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subControlP1">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="controlId" type="xs:string"/>
+          <xs:element minOccurs="0" name="debtorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentType" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentTypeDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="expectedValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="manualReviewDashboard" type="xs:string"/>
+          <xs:element minOccurs="0" name="referenceDocument" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="subcontrolId" type="xs:string"/>
+          <xs:element minOccurs="0" name="updatable" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subControlP2">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="controlId" type="xs:string"/>
+          <xs:element minOccurs="0" name="debtorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentType" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentTypeDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="expectedValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="manualReviewDashboard" type="xs:string"/>
+          <xs:element minOccurs="0" name="referenceDocument" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="subcontrolId" type="xs:string"/>
+          <xs:element minOccurs="0" name="updatable" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="vendor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" type="tns:addressDf"/>
+          <xs:element minOccurs="0" name="bankAccount" type="xs:string"/>
+          <xs:element minOccurs="0" name="dealer" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="vatNumber" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="wws112Response">
+    <part element="tns:wws112Response" name="parameters"> </part>
+  </message>
+  <message name="wws112">
+    <part element="tns:wws112" name="parameters"> </part>
+  </message>
+  <portType name="GetCreditDetailsServices">
+    <operation name="wws112">
+      <input message="tns:wws112" wsam:Action="http://getcreditdetails.wsbeans.iseries/GetCreditDetailsServices/wws112Request"> </input>
+      <output message="tns:wws112Response" wsam:Action="http://getcreditdetails.wsbeans.iseries/GetCreditDetailsServices/wws112Response"> </output>
+    </operation>
+  </portType>
+  <binding name="GetCreditDetailsServicesPortBinding" type="tns:GetCreditDetailsServices">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="wws112">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="GetCreditDetails">
+    <port binding="tns:GetCreditDetailsServicesPortBinding" name="GetCreditDetailsServicesPort">
+      <soap:address location="http://acra4tst:10073/web/services/GetCreditDetailsService/GetCreditDetails"/>
+    </port>
+  </service>
+</definitions>
