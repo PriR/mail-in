@@ -1,6 +1,7 @@
 package be.alphacredit.mailin.controllers;
 
 import be.alphacredit.mailin.payloads.rata.ResponseRata;
+import be.alphacredit.mailin.payloads.rflow.Response;
 import be.alphacredit.mailin.services.credit.CreditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +17,18 @@ public class CreditController {
     @Autowired
     private CreditService creditService;
 
-
-
     @GetMapping
-    public ResponseRata getCredit(@RequestHeader("entity") String entity, @RequestHeader("offerNumber") String offerNumber) {
-//        Boolean result = creditService.getCreditDetails(entity, offerNumber);
-//        return result;
-        ResponseRata result = creditService.getEntityAndOfferNumberRata(entity, offerNumber);
+    public Response getCredit(@RequestHeader("entity") String entity, @RequestHeader("offerNumber") String offerNumber) {
+        Boolean result = creditService.getCreditDetailsAS400(entity, offerNumber);
+//        ResponseRata result = creditService.getEntityAndOfferNumberRata(entity, offerNumber);
 
-        return result;
+        Response response = Response.builder()
+                .entity(entity)
+                .offerNumber(offerNumber)
+                .fileStatus("")
+                .worklist("")
+                .build();
+
+        return response;
     }
 }

@@ -4,16 +4,29 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+
+import java.util.Date;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ResponseBody
     @ExceptionHandler(InvalidCombinationEntityOfferNumberException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    String invalidCombinationEntityAndOfferNumber(InvalidCombinationEntityOfferNumberException ex) {
-        return ex.getMessage();
+    public ResponseEntity<?> invalidCombinationEntityAndOfferNumberException(InvalidCombinationEntityOfferNumberException ex) {
+        ErrorDetails errorDetails = ErrorDetails.builder()
+                .code(ex.getErrorCode())
+                .message(ex.getMessage())
+                .timestamp(new Date())
+                .build();
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(GeneralWSException.class)
+    public ResponseEntity<?> generalWSException(GeneralWSException ex) {
+        ErrorDetails errorDetails = ErrorDetails.builder()
+                .code(ex.getErrorCode())
+                .message(ex.getMessage())
+                .timestamp(new Date())
+                .build();
+        return new ResponseEntity<>(errorDetails, HttpStatus.SERVICE_UNAVAILABLE);
     }
 }

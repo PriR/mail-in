@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "GetCreditDetails", targetNamespace = "http://getcreditdetails.wsbeans.iseries/", wsdlLocation = "file:/C:/dev/Projects/mail-in/src/main/resources/wsdl/getCreditDetailsV4.wsdl")
+@WebServiceClient(name = "GetCreditDetails", targetNamespace = "http://getcreditdetails.wsbeans.iseries/", wsdlLocation = "file:/Users/prisciladasilva/Documents/Projetos/mail-in/src/main/resources/wsdl/getCreditDetailsV4.wsdl")
 public class GetCreditDetails
     extends Service
 {
@@ -30,7 +30,7 @@ public class GetCreditDetails
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/dev/Projects/mail-in/src/main/resources/wsdl/getCreditDetailsV4.wsdl");
+            url = new URL("file:/Users/prisciladasilva/Documents/Projetos/mail-in/src/main/resources/wsdl/getCreditDetailsV4.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

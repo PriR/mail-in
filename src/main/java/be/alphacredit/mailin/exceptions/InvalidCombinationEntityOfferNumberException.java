@@ -1,9 +1,20 @@
 package be.alphacredit.mailin.exceptions;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.text.MessageFormat;
+
+@Getter
+@Setter
 public class InvalidCombinationEntityOfferNumberException extends RuntimeException {
 
-    InvalidCombinationEntityOfferNumberException(String entity, String offerNumber) {
-        super("Could not combination entity: " + entity + " + offerNumber: " + offerNumber);
+    private Integer errorCode;
+    private String message;
+
+    public InvalidCombinationEntityOfferNumberException(String entity, String offerNumber) {
+        this.setMessage(MessageFormat.format(ErrorCodes.INVALID_COMBINATION_ENTITY_OFFERNUMBER_EXCEPTION.getMessage(), entity, offerNumber));
+        this.setErrorCode(ErrorCodes.INVALID_COMBINATION_ENTITY_OFFERNUMBER_EXCEPTION.getCode());
     }
 
 }

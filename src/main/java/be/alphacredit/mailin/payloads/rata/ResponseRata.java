@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ResponseRata {
 
-    String offerNumber = "678000002041";
-    String entity = "RL";
-    String status = "17";
-    String worklist = "";
+    String offerNumber;
+    String entity;
+    String status;
+    String worklist;
 
 }
